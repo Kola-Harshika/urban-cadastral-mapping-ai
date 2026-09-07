@@ -1,0 +1,729 @@
+/* =========================================================
+   URBAN CADASTRAL AI
+   FINAL CSS ENTRY FILE
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   All of the original page styles are preserved inside
+   index-base.css.
+
+   This file loads those styles first and then applies the
+   final normalization fixes below.
+*/
+
+@import "./index-base.css";
+
+
+/* =========================================================
+   FINAL DESIGN TOKENS
+   ========================================================= */
+
+:root {
+  --plum-900: #351b3f;
+  --plum-800: #472047;
+  --plum-700: #5c2850;
+  --plum-600: #71315a;
+
+  --burgundy: #7f1d3a;
+  --burgundy-dark: #64152f;
+  --burgundy-light: #f7e8ed;
+
+  --orchid: #8b5cf6;
+  --orchid-dark: #6d3fd1;
+  --orchid-light: #f0eaff;
+
+  --peach: #fb923c;
+  --peach-dark: #df6f18;
+  --peach-light: #fff0e4;
+
+  --blush: #f9a8b8;
+  --blush-light: #fff0f3;
+
+  --gold: #eabf6a;
+  --gold-dark: #c99b3f;
+  --gold-light: #fff8df;
+
+  --surface: #fff9f5;
+  --surface-card: #fffdfb;
+  --surface-sunken: #f8f1ed;
+
+  --text-primary: #29232a;
+  --text-secondary: #6f626b;
+  --text-muted: #9b8d96;
+}
+
+
+/* =========================================================
+   1. GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text-primary);
+  background: var(--surface);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+
+p {
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   2. PAGE STRUCTURE
+   ========================================================= */
+
+.page {
+  width: 100%;
+  max-width: 100%;
+}
+
+.page-header {
+  margin-bottom: 22px;
+}
+
+.page-header h1,
+.page-header h2,
+.page-header h3 {
+  margin: 0;
+  color: var(--plum-900);
+  line-height: 1.2;
+}
+
+.page-header h1 {
+  font-size: 27px;
+  font-weight: 750;
+  letter-spacing: -0.55px;
+}
+
+.page-header p,
+.page-header .page-description {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   3. CARDS
+   ========================================================= */
+
+.card {
+  overflow: hidden;
+}
+
+.card-header,
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-header > div,
+.card-head > div {
+  min-width: 0;
+}
+
+.card-title,
+.card-header h2,
+.card-header h3,
+.card-head h2,
+.card-head h3 {
+  margin: 0;
+  color: var(--plum-900);
+  line-height: 1.25;
+}
+
+.card-subtitle {
+  margin-top: 5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card p {
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   4. TEXT / LIST SPACING
+   ========================================================= */
+
+.page ul,
+.page ol {
+  margin: 0;
+  padding: 0;
+}
+
+.page li {
+  line-height: 1.55;
+}
+
+.dashboard-features,
+.feature-checks,
+.check-list,
+.validation-check-list,
+.implementation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.dashboard-features > *,
+.feature-checks > *,
+.check-list > *,
+.validation-check-list > *,
+.implementation-list > * {
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   5. BUTTON / FIELD SPACING
+   ========================================================= */
+
+.field-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+button {
+  line-height: 1.2;
+}
+
+.primary-button,
+.secondary-button,
+.btn {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   6. WORKFLOW — FIX MERGED TEXT
+   ========================================================= */
+
+.workflow {
+  width: 100%;
+}
+
+.workflow-flow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 7px 3px 11px;
+  scrollbar-width: thin;
+}
+
+.workflow-flow-group {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+}
+
+.workflow-flow-item {
+  flex: 0 0 auto;
+  min-height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+.workflow-flow-item.active {
+  background: var(--burgundy-light);
+  border-color: rgba(127, 29, 58, 0.2);
+  color: var(--burgundy);
+  box-shadow: 0 5px 14px rgba(127, 29, 58, 0.08);
+}
+
+.workflow-flow-number {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+}
+
+.workflow-arrow {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+
+/* =========================================================
+   7. AI ANALYSIS PIPELINE
+   ========================================================= */
+
+.ai-analysis-page .workflow-flow,
+.ai-pipeline-card .workflow-flow {
+  margin-top: 14px;
+}
+
+.ai-analysis-page .workflow-flow-item {
+  min-width: 112px;
+  justify-content: flex-start;
+}
+
+.ai-analysis-page .workflow-flow-item,
+.ai-analysis-page .workflow-flow-item span {
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   8. DASHBOARD FEATURE / CHECK TEXT
+   ========================================================= */
+
+.dashboard-page .card,
+.dashboard-page .module-card {
+  overflow: hidden;
+}
+
+.dashboard-page .card p,
+.dashboard-page .module-card p {
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.dashboard-page .card > p + *,
+.dashboard-page .module-card > p + * {
+  margin-top: 13px;
+}
+
+
+/* =========================================================
+   9. GENERAL INFORMATION LIST
+   ========================================================= */
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.info-list > div {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.5fr);
+  gap: 18px;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-list > div:last-child {
+  border-bottom: 0;
+}
+
+.info-list dt {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.info-list dd {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   10. GIS MAP — LIGHT, CLEAN, VISIBLE
+   ========================================================= */
+
+.gis-map {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: #eef2f3 !important;
+}
+
+.gis-map-svg {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  background: #eef2f3 !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.gis-map-svg .gis-grid-line {
+  stroke: #cbd5dc !important;
+  stroke-width: 0.7 !important;
+  opacity: 0.62 !important;
+}
+
+
+/* =========================================================
+   11. GIS BUILDINGS
+   ========================================================= */
+
+.gis-map-svg .gis-building {
+  fill: #fff9f5 !important;
+  stroke: var(--burgundy) !important;
+  stroke-width: 1.8 !important;
+
+  transition:
+    fill 0.18s ease,
+    stroke 0.18s ease,
+    filter 0.18s ease;
+}
+
+.gis-map-svg .gis-building:hover {
+  fill: #f9e3e9 !important;
+  filter: drop-shadow(0 3px 5px rgba(127, 29, 58, 0.18));
+}
+
+.gis-map-svg .gis-building--selected {
+  fill: var(--blush) !important;
+  stroke: var(--burgundy) !important;
+  stroke-width: 3 !important;
+}
+
+
+/* =========================================================
+   12. GIS ROADS
+   ========================================================= */
+
+.gis-map-svg .gis-road {
+  fill: none !important;
+  stroke: var(--peach) !important;
+  stroke-width: 7 !important;
+  stroke-linecap: round !important;
+  opacity: 0.82 !important;
+}
+
+.gis-map-svg .gis-road:hover {
+  stroke: var(--peach-dark) !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   13. GIS PARCELS
+   ========================================================= */
+
+.gis-map-svg .gis-parcel {
+  fill: rgba(139, 92, 246, 0.055) !important;
+  stroke: var(--orchid) !important;
+  stroke-width: 1.8 !important;
+  stroke-dasharray: 5 4 !important;
+
+  transition:
+    fill 0.18s ease,
+    stroke 0.18s ease;
+}
+
+.gis-map-svg .gis-parcel:hover {
+  fill: rgba(139, 92, 246, 0.13) !important;
+}
+
+.gis-map-svg .gis-parcel--selected {
+  fill: rgba(249, 168, 184, 0.22) !important;
+  stroke: var(--burgundy) !important;
+  stroke-width: 3 !important;
+}
+
+
+/* =========================================================
+   14. GIS CONTROLS
+   ========================================================= */
+
+.gis-map-coords,
+.gis-map-zoom-controls {
+  position: absolute;
+  z-index: 10;
+}
+
+.gis-map-zoom-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gis-map-zoom-controls button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(127, 29, 58, 0.14);
+  border-radius: 10px;
+
+  background: rgba(255, 253, 251, 0.94);
+  color: var(--plum-900);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(53, 27, 63, 0.1);
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.gis-map-zoom-controls button:hover {
+  transform: translateY(-1px);
+  background: var(--burgundy);
+  color: white;
+}
+
+
+/* =========================================================
+   15. GIS POPUPS
+   ========================================================= */
+
+.gis-floating-popup {
+  pointer-events: auto;
+}
+
+.gis-floating-popup text {
+  user-select: none;
+}
+
+
+/* =========================================================
+   16. EXPORT / REPORTS
+   ========================================================= */
+
+.export-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.export-card {
+  min-width: 0;
+}
+
+.export-card-body {
+  min-width: 0;
+}
+
+.export-card-name,
+.export-card-format {
+  line-height: 1.4;
+}
+
+.inline-note {
+  margin: 14px 0;
+  padding: 11px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   17. TABLE TEXT
+   ========================================================= */
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  line-height: 1.45;
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   18. FORM ELEMENTS
+   ========================================================= */
+
+input,
+select,
+textarea {
+  line-height: 1.4;
+}
+
+label {
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   19. STATUS / BADGES
+   ========================================================= */
+
+.status-badge,
+.badge {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   20. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .export-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-list > div {
+    grid-template-columns: minmax(130px, 0.7fr) minmax(0, 1.3fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .workflow-flow {
+    align-items: stretch;
+  }
+
+  .workflow-flow-group {
+    flex-direction: row;
+  }
+
+  .ai-analysis-page .workflow-flow-item {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .workflow-flow-item {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+
+  .info-list > div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .export-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   21. FINAL SAFETY OVERRIDES
+   ========================================================= */
+
+/*
+   These prevent accidental dark filters/backgrounds from
+   making the SVG map appear as a black rectangle.
+*/
+
+.gis-map,
+.gis-map-svg {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.gis-map-svg > g {
+  opacity: 1;
+}
+
+
+/* Prevent text from collapsing into neighbouring elements */
+
+.page p,
+.card p,
+.module-card p,
+.feature-card p {
+  line-height: 1.55;
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page h4 {
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */
