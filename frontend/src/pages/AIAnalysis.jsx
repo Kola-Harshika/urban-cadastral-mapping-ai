@@ -10,8 +10,7 @@ import {
   IconCpu,
 } from "../components/Icons";
 
-const API_BASE = "http://127.0.0.1:8000";
-
+const API_BASE = "https://urban-cadastral-mapping-ai-1.onrender.com";
 const PIPELINE = [
   { label: "Input GeoTIFF" },
   { label: "Preprocessing" },
